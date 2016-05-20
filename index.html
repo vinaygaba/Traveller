@@ -27,14 +27,37 @@
 
 
   <body>
-    <div id="map"></div>
+    <div id="map_canvas"></div>
 
     <script>
       var map;
+
       function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
+        map = new google.maps.Map(document.getElementById('map_canvas'), {
           center: {lat: 20.5937, lng: 78.9629},
-          zoom: 8
+          zoom: 2,
+          disableDefaultUI: true
+        });
+        map.set('styles',[{"featureType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"visibility":"on"},{"lightness":-100}]}]);
+
+        $.getJSON("https://api.myjson.com/bins/3w1sw", function(json) {
+          for(each in json){
+            //console.log(json[each]["lat"])
+
+            var myLatLng = {lat: parseFloat(json[each]["lat"]), lng: parseFloat(json[each]["lon"])};
+            var marker = new google.maps.Marker({
+              position: myLatLng,
+              icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 2,
+                strokeColor: '#536DFE',
+              },
+              //title:json[each]["name"],
+              title:"I might be here",
+              map: map
+            });
+
+          }
         });
 
       }
