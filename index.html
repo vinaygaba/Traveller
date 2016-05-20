@@ -40,20 +40,21 @@
         });
         map.set('styles',[{"featureType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"visibility":"on"},{"lightness":-100}]}]);
 
-        $.getJSON("https://api.myjson.com/bins/3w1sw", function(json) {
+        $.getJSON("https://api.myjson.com/bins/2jv8g", function(json) {
           for(each in json){
             //console.log(json[each]["lat"])
 
             var myLatLng = {lat: parseFloat(json[each]["lat"]), lng: parseFloat(json[each]["lon"])};
+            var strokeColor = json[each]["purpose"]=="lived"?"#512DA8":"#FFA000";
             var marker = new google.maps.Marker({
               position: myLatLng,
               icon: {
                 path: google.maps.SymbolPath.CIRCLE,
                 scale: 2,
-                strokeColor: '#536DFE',
+                strokeColor: strokeColor,
               },
-              //title:json[each]["name"],
-              title:"I might be here",
+              title:json[each]["purpose"],
+              //title:"I might be here",
               map: map
             });
 

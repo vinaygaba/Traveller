@@ -38,9 +38,9 @@ html, body {
   }
   /* get the container that's just outside the marker image,
       which just happens to have our Marker title in it */
-  #map_canvas div.gmnoprint[title="I might be here"] {
-      -moz-animation: pulsate 1.5s ease-in-out infinite;
-      -webkit-animation: pulsate 1.5s ease-in-out infinite;
+  #map_canvas div.gmnoprint[title="lived"]{
+      -moz-animation: pulsate 2s ease-in-out infinite;
+      -webkit-animation: pulsate 2s ease-in-out infinite;
       border:1pt solid #fff;
       /* make a circle */
       -moz-border-radius:51px;
@@ -48,9 +48,30 @@ html, body {
       border-radius:51px;
       /* multiply the shadows, inside and outside the circle */
       /*Next 3 lines Decide the color of the pulse*/
-      -moz-box-shadow:inset 0 0 5px #06f, inset 0 0 5px #06f, inset 0 0 5px #06f, 0 0 5px #06f, 0 0 5px #06f, 0 0 5px #06f;
-      -webkit-box-shadow:inset 0 0 5px #06f, inset 0 0 5px #06f, inset 0 0 5px #06f, 0 0 5px #06f, 0 0 5px #06f, 0 0 5px #06f;
-      box-shadow:inset 0 0 5px #06f, inset 0 0 5px #06f, inset 0 0 5px #06f, 0 0 5px #06f, 0 0 5px #06f, 0 0 5px #06f;
+      -moz-box-shadow:inset 0 0 5px #512DA8, inset 0 0 5px #512DA8, inset 0 0 5px #512DA8, 0 0 5px #512DA8, 0 0 5px #512DA8, 0 0 5px #512DA8;
+      -webkit-box-shadow:inset 0 0 5px #512DA8, inset 0 0 5px #512DA8, inset 0 0 5px #512DA8, 0 0 5px #512DA8, 0 0 5px #512DA8, 0 0 5px #512DA8;
+      box-shadow:inset 0 0 5px #512DA8, inset 0 0 5px #512DA8, inset 0 0 5px #512DA8, 0 0 5px #512DA8, 0 0 5px #512DA8, 0 0 5px #512DA8;
+      /* set the ring's new dimension and re-center it */
+      height:24px!important;
+      margin:-10px 0 0 -10px;
+      width:24px!important;
+  }
+
+  /* get the container that's just outside the marker image,
+      which just happens to have our Marker title in it */
+  #map_canvas div.gmnoprint[title="travelled"]{
+      -moz-animation: pulsate 2s ease-in-out infinite;
+      -webkit-animation: pulsate 2s ease-in-out infinite;
+      border:1pt solid #fff;
+      /* make a circle */
+      -moz-border-radius:51px;
+      -webkit-border-radius:51px;
+      border-radius:51px;
+      /* multiply the shadows, inside and outside the circle */
+      /*Next 3 lines Decide the color of the pulse*/
+      -moz-box-shadow:inset 0 0 5px #FFA000, inset 0 0 5px #FFA000, inset 0 0 5px #FFA000, 0 0 5px #FFA000, 0 0 5px #FFA000, 0 0 5px #FFA000;
+      -webkit-box-shadow:inset 0 0 5px #FFA000, inset 0 0 5px #FFA000, inset 0 0 5px #FFA000, 0 0 5px #FFA000, 0 0 5px #FFA000, 0 0 5px #FFA000;
+      box-shadow:inset 0 0 5px #FFA000, inset 0 0 5px #FFA000, inset 0 0 5px #FFA000, 0 0 5px #FFA000, 0 0 5px #FFA000, 0 0 5px #FFA000;
       /* set the ring's new dimension and re-center it */
       height:24px!important;
       margin:-10px 0 0 -10px;
@@ -60,7 +81,10 @@ html, body {
 
   /* hide the superfluous marker image since it would expand and shrink with its containing element */
   /*  #map_canvas div[style*="987654"][title] img {*/
-      #map_canvas div.gmnoprint img {
+      #map_canvas div.gmnoprint[title="lived"] img {
+          display:none;
+      }
+      #map_canvas div.gmnoprint[title="travelled"] img {
           display:none;
       }
       /* compensate for iPhone and Android devices with high DPI, add iPad media query */
