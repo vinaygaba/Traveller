@@ -21,31 +21,43 @@
     <link rel="stylesheet" href="css/style.css" >
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Droid+Sans:700' rel='stylesheet' type='text/css'>
     <!--<link rel="shortcut icon" href="/view/images/favicon.gif" type="image/x-icon" />
     <link rel="icon" href="/view/images/favicon.gif" type="image/gif" />-->
   </head>
 
 
   <body>
-    <div id="map_canvas"></div>
+
+        <!--<div class="embed-responsive embed-responsive-4by3">-->
+        <div id="map_canvas"></div>
+        <div id="infoPanel" style="height:100%;background:#000000">
+          <span id="infoText"></div>
+        </div>
+        <!--</div>-->
+
+
 
     <script>
       var map;
-
+      var cities = 0;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map_canvas'), {
           center: {lat: 20.5937, lng: 78.9629},
           zoom: 2,
           disableDefaultUI: true
         });
+        //Google style
         map.set('styles',[{"featureType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"visibility":"on"},{"lightness":-100}]}]);
+        //map.set('styles',[{"featureType":"all","elementType":"all","stylers":[{"invert_lightness":true},{"saturation":10},{"lightness":30},{"gamma":0.5},{"hue":"#242e3e"}]}])
+        //Tripitty
 
         $.getJSON("https://api.myjson.com/bins/2jv8g", function(json) {
           for(each in json){
             //console.log(json[each]["lat"])
-
+            cities = cities + 1;
             var myLatLng = {lat: parseFloat(json[each]["lat"]), lng: parseFloat(json[each]["lon"])};
-            var strokeColor = json[each]["purpose"]=="lived"?"#512DA8":"#FFA000";
+            var strokeColor = json[each]["purpose"]=="lived"?"#2cbcff":"#ff7301";
             var marker = new google.maps.Marker({
               position: myLatLng,
               icon: {
@@ -59,6 +71,7 @@
             });
 
           }
+          $('#infoText').html(cities + " Cities");
         });
 
       }
