@@ -21,7 +21,8 @@
     <link rel="stylesheet" href="css/style.css" >
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-  <link href='https://fonts.googleapis.com/css?family=Droid+Sans:700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Candal' rel='stylesheet' type='text/css'>
+  <!--<link href='https://fonts.googleapis.com/css?family=Droid+Sans:700' rel='stylesheet' type='text/css'>-->
     <!--<link rel="shortcut icon" href="/view/images/favicon.gif" type="image/x-icon" />
     <link rel="icon" href="/view/images/favicon.gif" type="image/gif" />-->
   </head>
@@ -70,11 +71,30 @@
               map: map
             });
 
+            attachMessage(marker, json[each]["name"]);
+
+            // Attaches an info window to a marker with the provided message. When the
+            // marker is clicked, the info window will open with the secret message.
+            function attachMessage(marker, Message) {
+              console.log(Message)
+              var infowindow = new google.maps.InfoWindow({
+                content: Message
+              });
+
+              marker.addListener('mouseover', function() {
+                console.log("mouseover");
+                infowindow.open(marker.get('map'), marker);
+              });
+            }
+
+
           }
           $('#infoText').html(cities + " Cities");
         });
 
       }
+
+
       </script>
 
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCI4N_TcCo8xng2e7wdLLIM09DtiIe744Q&callback=initMap" async defer></script>
