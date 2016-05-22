@@ -32,14 +32,15 @@
 
         <!--<div class="embed-responsive embed-responsive-4by3">-->
         <div id="map_canvas"></div>
-        <div id="infoPanel" style="height:100%;background:#000000">
+        <div id="infoPanel">
           <span id="infoText"></div>
         </div>
         <!--</div>-->
 
 
-
+    <script type="text/javascript" src="js/mapstyles.js"></script>
     <script>
+
       var map;
       var cities = 0;
       function initMap() {
@@ -50,10 +51,9 @@
           draggable:false,
           zoomControl: true,
         });
-        //Google style
-        map.set('styles',[{"featureType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"visibility":"on"},{"lightness":-100}]}]);
-        //map.set('styles',[{"featureType":"all","elementType":"all","stylers":[{"invert_lightness":true},{"saturation":10},{"lightness":30},{"gamma":0.5},{"hue":"#242e3e"}]}])
-        //Tripitty
+        //Set map style
+        map.set('styles',prestoMap);
+
 
         $.getJSON("https://api.myjson.com/bins/2jv8g", function(json) {
           for(each in json){
