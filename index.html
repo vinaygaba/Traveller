@@ -46,7 +46,9 @@
         map = new google.maps.Map(document.getElementById('map_canvas'), {
           center: {lat: 20.5937, lng: 78.9629},
           zoom: 2,
-          disableDefaultUI: true
+          disableDefaultUI: true,
+          draggable:false,
+          zoomControl: true,
         });
         //Google style
         map.set('styles',[{"featureType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"visibility":"on"},{"lightness":-100}]}]);
@@ -58,13 +60,15 @@
             //console.log(json[each]["lat"])
             cities = cities + 1;
             var myLatLng = {lat: parseFloat(json[each]["lat"]), lng: parseFloat(json[each]["lon"])};
-            var strokeColor = json[each]["purpose"]=="lived"?"#2cbcff":"#ff7301";
+            var strokeColor = json[each]["purpose"]=="lived"?"#4346c0":"#10955e";
             var marker = new google.maps.Marker({
               position: myLatLng,
               icon: {
                 path: google.maps.SymbolPath.CIRCLE,
                 scale: 2,
                 strokeColor: strokeColor,
+                fillOpacity: 1,
+                fillColor:strokeColor
               },
               title:json[each]["purpose"],
               //title:"I might be here",
@@ -82,8 +86,11 @@
               });
 
               marker.addListener('mouseover', function() {
-                console.log("mouseover");
                 infowindow.open(marker.get('map'), marker);
+              });
+
+              marker.addListener('mouseout', function() {
+                infowindow.close(marker.get('map'), marker);
               });
             }
 

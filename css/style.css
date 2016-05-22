@@ -19,7 +19,8 @@ span#infoText{
     align-items: center;
     justify-content: center;
     color: #ffffff;
-    font-family: 'Droid Sans', sans-serif;
+    /*font-family: 'Droid Sans', sans-serif;*/
+    font-family: 'Candal', sans-serif;
     font-size: 30px;
 }
 
@@ -64,9 +65,9 @@ span#infoText{
       border-radius:51px;
       /* multiply the shadows, inside and outside the circle */
       /*Next 3 lines Decide the color of the pulse*/
-      -moz-box-shadow:inset 0 0 5px #2cbcff, inset 0 0 5px #2cbcff, inset 0 0 5px #2cbcff, 0 0 5px #2cbcff, 0 0 5px #2cbcff, 0 0 5px #2cbcff;
-      -webkit-box-shadow:inset 0 0 5px #2cbcff, inset 0 0 5px #2cbcff, inset 0 0 5px #2cbcff, 0 0 5px #2cbcff, 0 0 5px #2cbcff, 0 0 5px #2cbcff;
-      box-shadow:inset 0 0 5px #2cbcff, inset 0 0 5px #2cbcff, inset 0 0 5px #2cbcff, 0 0 5px #2cbcff, 0 0 5px #2cbcff, 0 0 5px #2cbcff;
+      -moz-box-shadow:inset 0 0 5px #4346c0, inset 0 0 5px #4346c0, inset 0 0 5px #4346c0, 0 0 5px #4346c0, 0 0 5px #4346c0, 0 0 5px #4346c0;
+      -webkit-box-shadow:inset 0 0 5px #4346c0, inset 0 0 5px #4346c0, inset 0 0 5px #4346c0, 0 0 5px #4346c0, 0 0 5px #4346c0, 0 0 5px #4346c0;
+      box-shadow:inset 0 0 5px #4346c0, inset 0 0 5px #4346c0, inset 0 0 5px #4346c0, 0 0 5px #4346c0, 0 0 5px #4346c0, 0 0 5px #4346c0;
       /* set the ring's new dimension and re-center it */
       height:24px!important;
       margin:-10px 0 0 -10px;
@@ -85,9 +86,9 @@ span#infoText{
       border-radius:51px;
       /* multiply the shadows, inside and outside the circle */
       /*Next 3 lines Decide the color of the pulse*/
-      -moz-box-shadow:inset 0 0 5px #ff7301, inset 0 0 5px #ff7301, inset 0 0 5px #ff7301, 0 0 5px #ff7301, 0 0 5px #ff7301, 0 0 5px #ff7301;
-      -webkit-box-shadow:inset 0 0 5px #ff7301, inset 0 0 5px #ff7301, inset 0 0 5px #ff7301, 0 0 5px #ff7301, 0 0 5px #ff7301, 0 0 5px #ff7301;
-      box-shadow:inset 0 0 5px #ff7301, inset 0 0 5px #ff7301, inset 0 0 5px #ff7301, 0 0 5px #ff7301, 0 0 5px #ff7301, 0 0 5px #ff7301;
+      -moz-box-shadow:inset 0 0 5px #10955e, inset 0 0 5px #10955e, inset 0 0 5px #10955e, 0 0 5px #10955e, 0 0 5px #10955e, 0 0 5px #10955e;
+      -webkit-box-shadow:inset 0 0 5px #10955e, inset 0 0 5px #10955e, inset 0 0 5px #10955e, 0 0 5px #10955e, 0 0 5px #10955e, 0 0 5px #10955e;
+      box-shadow:inset 0 0 5px #10955e, inset 0 0 5px #10955e, inset 0 0 5px #10955e, 0 0 5px #10955e, 0 0 5px #10955e, 0 0 5px #10955e;
       /* set the ring's new dimension and re-center it */
       height:24px!important;
       margin:-10px 0 0 -10px;
