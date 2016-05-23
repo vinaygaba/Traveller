@@ -28,13 +28,15 @@
   </head>
 
 
-  <body>
+  <body style="overflow:hidden;">
 
         <!--<div class="embed-responsive embed-responsive-4by3">-->
-        <div id="map_canvas"></div>
-        <div id="infoPanel">
-          <span id="infoText"></div>
-        </div>
+
+          <div id="map_canvas"></div>
+          <div id="infoPanel">
+            <span id="infoText"></span>
+          </div>
+
         <!--</div>-->
 
 
@@ -55,11 +57,13 @@
         map.set('styles',prestoMap);
 
 
-        $.getJSON("https://api.myjson.com/bins/2jv8g", function(json) {
+        $.getJSON("https://api.myjson.com/bins/27heg", function(json) {
           for(each in json){
             //console.log(json[each]["lat"])
             cities = cities + 1;
             var myLatLng = {lat: parseFloat(json[each]["lat"]), lng: parseFloat(json[each]["lon"])};
+
+            //setTimeout(myLatLng = geocodeAddress(json[each]["name"]) , 5000);
             var strokeColor = json[each]["purpose"]=="lived"?"#4346c0":"#10955e";
             var marker = new google.maps.Marker({
               position: myLatLng,
@@ -96,11 +100,26 @@
 
 
           }
+
+
           $('#infoText').html(cities + " Cities");
         });
 
       }
 
+      /*
+      function geocodeAddress(location) {
+        console.log("Method called")
+      var geocoder = new google.maps.Geocoder();
+      geocoder.geocode({'address': location}, function(results, status) {
+        if (status === google.maps.GeocoderStatus.OK) {
+          return results[0].geometry.location;
+        } else {
+          console.log('Geocode was not successful for the following reason: ' + status);
+          return -1
+        }
+      });
+    }   */
 
       </script>
 
