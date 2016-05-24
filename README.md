@@ -9,17 +9,21 @@ Add a map on your site with every place that you have visited! [Demo](http://www
 Introduction
 -----
 
-My motivation behind creating Traveller was to create a map for my website that showcases the places that I have visited. I soon realized that there might be more people(developers) who would want to have a similar page on their site so I decided to put this up on Github.
+My motivation behind creating Traveller was to create a [map for my website](http://www.vinaygaba.com/traveller/demo.html) that showcases the places that I have visited. I soon realized that there might be more people(developers) who would want to have a similar page on their site so I decided to put this up on Github.
 
 As of now, it is a simple html page but going forward, I will be working on converting this into a React component so that it can be easily added to any web app.
 
-I will try to be as elaborate as possible in giving instructions about how one might customize it to suit their needs.
+I will try to be as elaborate as possible in giving instructions about how one might use this and customize it to suit their needs.
 
 
 Usage
 ------
+First, you need to get a key to be able to use the Google Maps Javascript API. If you do not have one, go to the following [link](https://developers.google.com/maps/documentation/javascript/) and click on the "Get a Key" button on the top right corner. Once you have the key, find the following line in the index.html page and replace the placeholder with your key.
+```
+<script src="https://maps.googleapis.com/maps/api/js?key=GOOGLE_MAP_API_KEY&callback=initMap" async defer></script>
+```
 
-The page parses a JSON file in order to know which points need to be populated on the map. The format of the JSON string needs to be as follows:
+The html page parses a JSON file in order to know which points need to be populated on the map. The format of the JSON string needs to be as follows:
 
 ```JSON
 [
@@ -62,7 +66,7 @@ This is very early stages for this project and I definitely plan to make it more
 
 - Convert it into a React component
 - Enter place names instead of lat/lng values. Will probably need to use the Geocoding API.
-- Add more information when you hover over a marker. Something like an image from the trip could be useful. Or a side panel that loads when you click on a marker which contains all the images from the trip. 
+- Add more information when you hover over a marker. Something like an image from the trip could be useful. Or a side panel that loads when you click on a marker which contains all the images from the trip.
 
 Inspiration
 -------
