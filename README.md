@@ -49,12 +49,20 @@ To specify which JSON file to use, find the ```$.getJSON(pathToJSONFile,function
 
 And this is it! This is the only step that is required in order to see the populated world map that you see in the above screenshot.
 
-<b>Note</b>: I understand that manually adding the locations can be a pain in the butt, especially for people who have travelled a lot. This will change soon as I am exploring alternate ways to do this(Facebook/Foursquare Checkins). I am also open to suggestions from you guys so feel free to use the Issues tracker to give me feedback.
+<b>Note</b>: I understand that manually adding the locations can be a pain in the butt, especially for people who have travelled a lot. This will change soon as I am exploring alternate ways to do this(Facebook/Foursquare Checkins). I am also open to suggestions from you guys so feel free to use the Issue tracker to give me feedback.
 
 Customizations
 -----
 
 Work in Progress
+
+To Do
+-----
+This is very early stages for this project and I definitely plan to make it more useful. I would love to get more people involved and so here are a list of things that I would appreciate getting some help on:
+
+- Convert it into a React component
+- Enter place names instead of lat/lng values. Will probably need to use the Geocoding API.
+- Add more information when you hover over a marker. Something like an image from the trip could be useful. Or a side panel that loads when you click on a marker which contains all the images from the trip. 
 
 Inspiration
 -------
