@@ -40,12 +40,12 @@ The page parses a JSON file in order to know which points need to be populated o
   .
 ]
 ```
-Right now I use two different markers to represent whether you lived in a city or were just travelling. If you do not like this, it would be pretty simple to do so by making changes in the styles.css file. More about this in the Customizations section.
+Right now I use two different markers to represent whether you lived in a city or were just travelling. If you do not like this, it would be pretty simple to remove this by making changes in the styles.css file. More about this in the Customizations section.
 
-Example JSON files can be found in <b>data</b> folder.
-You can either save the json file in the same server or host the json file on a service like [myjson](myjson.com)
+Example JSON files can be found in [data](data/) folder.
+You can either save the JSON file in the same server or host the json file on a service like [myjson](http://myjson.com)
 
-To use your json file, find the ```$.getJSON(pathToJSONFile,function(..))``` method call in the html page and replace the jsonPath with the path to your json file.
+To specify which JSON file to use, find the ```$.getJSON(pathToJSONFile,function(..))``` method call in the html page and replace the jsonPath with the path to your JSON file.
 
 And this is it! This is the only step that is required in order to see the populated world map that you see in the above screenshot.
 
