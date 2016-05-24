@@ -50,3 +50,47 @@ To specify which JSON file to use, find the ```$.getJSON(pathToJSONFile,function
 And this is it! This is the only step that is required in order to see the populated world map that you see in the above screenshot.
 
 <b>Note</b>: I understand that manually adding the locations can be a pain in the butt, especially for people who have travelled a lot. This will change soon as I am exploring alternate ways to do this(Facebook/Foursquare Checkins). I am also open to suggestions from you guys so feel free to use the Issues tracker to give me feedback.
+
+Customizations
+-----
+
+Work in Progress
+
+Inspiration
+-------
+Traveller was inspired by [Conquer.earth](https://conquer.earth) which was developed by Dustin Curtis. I wanted Traveller to be something that I can host on my own site.
+
+Credits
+-----------------
+Author: Vinay Gaba (vinaygaba@gmail.com)
+
+<a href="https://plus.google.com/+Vinaygaba">
+  <img alt="Follow me on Google+"
+       src="https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/g+64.png" />
+</a>
+<a href="https://twitter.com/vinaygaba">
+  <img alt="Follow me on Twitter"
+       src="https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/twitter64.png" />
+</a>
+<a href="https://www.linkedin.com/in/vinaygaba">
+  <img alt="Follow me on LinkedIn"
+       src="https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/linkedin.png" />
+</a>
+
+
+License
+-------
+
+    Copyright 2016 Vinay Gaba
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
