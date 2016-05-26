@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="content-script-type" content="text/javascript" />
+		<meta http-equiv="content-style-type" content="text/css" />
+		<meta http-equiv="content-language" content="en" />
+		<meta property="og:image" content="/view/images/gdg.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<meta name="author" content="Vinay Gaba" />
+		<meta name="description" content="I'm Vinay Gaba, an Android developer / Creative Programmer / Tech Nerd / Aspiring Entrepreneur obsessed with everything tech." />
+		<meta name="keywords" content="Vinay Gaba, vinaygaba, Resume, CV, Android,Android Developer, Android Wear, Android Wear beyond the handset, Google Glass, Startup, CV, Resume,Tech nerd, Entrepreneurship, Python, Algorithms, Java, MySQL,TSEC,Thadomal Shahahi Engineering College,Author" />
+		<meta name="robots" content="index, follow" />
+		<meta name="revisit-after" content="14 days" />
+
+		<title>Traveller</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="css/style.css" >
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Candal' rel='stylesheet' type='text/css'>
+  <!--<link href='https://fonts.googleapis.com/css?family=Droid+Sans:700' rel='stylesheet' type='text/css'>-->
+    <!--<link rel="shortcut icon" href="/view/images/favicon.gif" type="image/x-icon" />
+    <link rel="icon" href="/view/images/favicon.gif" type="image/gif" />-->
+  </head>
+
+
+  <body style="overflow:hidden;">
+
+        <!--<div class="embed-responsive embed-responsive-4by3">-->
+
+          <div id="map_canvas"></div>
+          <div id="infoPanel">
+            <span id="infoText"></span>
+          </div>
+
+        <!--</div>-->
+
+
+    <script type="text/javascript" src="js/mapstyles.js"></script>
+    <script>
+
+      var map;
+      var cities = 0;
+      function initMap() {
+					console.log("Called init")
+        map = new google.maps.Map(document.getElementById('map_canvas'), {
+          center: {lat: 17.6078, lng: 8.0817},
+          zoom: 2,
+          disableDefaultUI: true,
+          draggable:false,
+          zoomControl: true,
+        });
+        //Set map style
+        map.set('styles',prestoMap);
+
+				//https://api.myjson.com/bins/27heg
+      //$.getJSON("https://api.myjson.com/bins/27heg", function(json) {
+					var json = [
+					   {
+					      "name":"Mumbai",
+					      "lat":"19.0760",
+					      "lon":"72.8777",
+					      "purpose":"lived"
+					   },
+					   {
+					      "name":"Hyderabad",
+					      "lat":"17.3850",
+					      "lon":"78.4867",
+					      "purpose":"lived"
+					   },
+					   {
+					      "name":"Ahmedabad",
+					      "lat":"23.0225",
+					      "lon":"72.5714",
+					      "purpose":"travelled"
+					   },
+					   {
+					      "name":"Mt. Abu",
+					      "lat":"24.5926",
+					      "lon":"72.7156",
+					      "purpose":"travelled"
+					   },
+					   {
+					      "name":"New York",
+					      "lat":"40.730610",
+					      "lon":"-73.935242",
+					      "purpose":"lived"
+					   },
+					   {
+					      "name":"Seattle",
+					      "lat":"47.608013",
+					      "lon":"-122.335167",
+					      "purpose":"travelled"
+					   },
+					   {
+					      "name":"Montauk",
+					      "lat":"41.0359",
+					      "lon":"-71.9545",
+					      "purpose":"travelled"
+					   },
+					   {
+					      "name":"Udaipur",
+					      "lat":"24.5854",
+					      "lon":"73.7125",
+					      "purpose":"travelled"
+					   },
+					   {
+					      "name":"Bangkok",
+					      "lat":"13.7563",
+					      "lon":"100.5018",
+					      "purpose":"travelled"
+					   },
+					   {
+					      "name":"Phi Phi",
+					      "lat":"7.7407",
+					      "lon":"98.7784",
+					      "purpose":"travelled"
+					   },
+					   {
+					      "name":"Krabi",
+					      "lat":"8.0863",
+					      "lon":"98.9063",
+					      "purpose":"travelled"
+					   },
+					   {
+					      "name":"Phuket",
+					      "lat":"7.9519",
+					      "lon":"98.3381",
+					      "purpose":"travelled"
+					   },
+					   {
+					      "name":"Barcelona",
+					      "lat":"41.385064",
+					      "lon":"2.173403",
+					      "purpose":"travelled"
+					   },
+					   {
+					      "name":"Madrid",
+					      "lat":"40.416775",
+					      "lon":"-3.703790",
+					      "purpose":"travelled"
+					   },
+					   {
+					      "name":"Valencia",
+					      "lat":"39.469907",
+					      "lon":"-0.376288",
+					      "purpose":"travelled"
+					   },
+					   {
+					      "name":"Milan",
+					      "lat":"45.465422",
+					      "lon":"9.185924",
+					      "purpose":"travelled"
+					   },
+					   {
+					      "name":"Lisbon",
+					      "lat":"38.722252",
+					      "lon":"-9.139337",
+					      "purpose":"travelled"
+					   },
+					   {
+					      "name":"London",
+					      "lat":"51.507351",
+					      "lon":"-0.127758",
+					      "purpose":"travelled"
+					   },
+					   {
+					      "name":"Manchester",
+					      "lat":"53.480759",
+					      "lon":"-2.242631",
+					      "purpose":"travelled"
+					   },
+					   {
+					      "name":"Dublin",
+					      "lat":"53.349805",
+					      "lon":"-6.260310",
+					      "purpose":"travelled"
+					   },
+					   {
+					      "name":"Scotland",
+					      "lat":"56.490671",
+					      "lon":"-4.202646",
+					      "purpose":"travelled"
+					   },
+					   {
+					      "name":"Budapest",
+					      "lat":"47.497912",
+					      "lon":"19.040235",
+					      "purpose":"travelled"
+					   },
+					   {
+					      "name":"Prague",
+					      "lat":"50.075538",
+					      "lon":"14.437800",
+					      "purpose":"travelled"
+					   },
+					   {
+					      "name":"Vienna",
+					      "lat":"48.208174",
+					      "lon":"16.373819",
+					      "purpose":"travelled"
+					   },
+					   {
+					      "name":"Moscow",
+					      "lat":"55.755826",
+					      "lon":"37.617300",
+					      "purpose":"travelled"
+					   },
+					   {
+					      "name":"Beijing",
+					      "lat":"39.904211",
+					      "lon":"116.407395",
+					      "purpose":"travelled"
+					   },
+					   {
+					      "name":"Osaka",
+					      "lat":"34.693738",
+					      "lon":"135.502165",
+					      "purpose":"travelled"
+					   },
+					   {
+					      "name":"Hong Kong",
+					      "lat":"22.396428",
+					      "lon":"114.109497",
+					      "purpose":"travelled"
+					   },
+					   {
+					      "name":"Rio de Janerio",
+					      "lat":"-22.906847",
+					      "lon":"-43.172896",
+					      "purpose":"travelled"
+					   },
+					   {
+					      "name":"Lima",
+					      "lat":"-12.046374",
+					      "lon":"-77.042793",
+					      "purpose":"travelled"
+					   },
+					   {
+					      "name":"Bali",
+					      "lat":"-8.409518",
+					      "lon":"115.188916",
+					      "purpose":"travelled"
+					   }
+					]
+
+					console.log("Got Json")
+					sleepTime = 1000;
+					var i = 0;
+					var passed = true;
+					var geocoder = new google.maps.Geocoder();
+					while (i < json.length) {
+						console.log(i)
+						//i = i+1;
+
+						console.log("Trying Geocode for:")
+						console.log(json[i]["name"])
+						var marker ;
+			      geocoder.geocode({'address': json[i]["name"]}, function(results, status) {
+
+			        if (status === google.maps.GeocoderStatus.OK) {
+								passed = true;
+								var myLatLng = results[0].geometry.location;
+								//var positionOnMap = {lat: myLatLng.lat(), lng: myLatLng.lon()};
+
+								//var strokeColor = json[i]["purpose"]=="lived"?"#4346c0":"#10955e";
+								//console.log(myLatLng)
+
+		          	marker = new google.maps.Marker({
+		              position: myLatLng ,
+		              icon: {
+		                path: google.maps.SymbolPath.CIRCLE,
+		                scale: 2,
+		                strokeColor: "#10955e",
+		                fillOpacity: 1,
+		                fillColor:"#10955e"
+		              },
+		              title:"travelled",
+		              map: map
+		            });
+
+								//attachMessage(marker, infowindow, json[i]["name"]);
+		            // Attaches an info window to a marker with the provided message. When the
+		            // marker is clicked, the info window will open with the secret message.
+
+
+			        } else if(status === google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
+								passed = false;
+								sleep(sleepTime);
+								sleepTime = sleepTime + 1000;
+								console.log('Geocode was not successful for the following reason: ' + status);
+			        }
+
+			      });
+
+						if(passed){
+							i = i+1;
+						}
+					}
+
+					$('#infoText').html(json.length + " Cities");
+
+      // });
+
+      }
+
+			function sleep(miliseconds) {
+		   var currentTime = new Date().getTime();
+
+		   while (currentTime + miliseconds >= new Date().getTime()) {
+		   }
+			 	console.log("leaving sleep")
+			}
+
+			function attachMessage(marker, infowindow,message) {
+				console.log(message + " was passed as message")
+				infowindow.setContent(message)
+				marker.addListener('mouseover', function() {
+					infowindow.open(marker.get('map'), marker);
+					//this.setIcon('http://www.christielakekids.com/_images/map_pins/events/canoe-for-kids.png')
+				});
+
+				marker.addListener('mouseout', function() {
+					infowindow.close();
+					//this.removeIcon();
+				});
+			}
+
+
+      </script>
+
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdJjPmUOYkhiMAOgeMFkR0JMLT7bKeLC4&callback=initMap" async defer></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  </body>
+
+</html>
