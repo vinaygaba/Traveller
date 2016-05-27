@@ -55,17 +55,28 @@ And this is it! This is the only step that is required in order to see the popul
 
 <b>Note</b>: I understand that manually adding the locations can be a pain in the butt, especially for people who have travelled a lot. This will change soon as I am exploring alternate ways to do this(Facebook/Foursquare Checkins). I am also open to suggestions from you guys so feel free to use the Issue tracker to give me feedback.
 
-Customizations
+Map Customizations
 -----
 
-Work in Progress
+I have added a few map styles that I personally liked in [mapstyles.js](js/mapstyles.js). To use them, import the js file in your html page(Already added in index.html page) and replace the palceholder text in the following line with one of the possibly map styles:
+
+```
+map.set('styles',NAME_OF_STYLE);
+```
+
+Here is a list of the possible map styles that I have currently added.
+
+
+
+
+You can very easily add more styles to the [mapstyles.js](js/mapstyles.js) file by going to [Snazzy Maps](https://snazzymaps.com/) and copy pasting the code for any of the map styles that you might like from the site.
 
 To Do
 -----
 This is very early stages for this project and I definitely plan to make it more useful. I would love to get more people involved and so here are a list of things that I would appreciate getting some help on:
 
 - Convert it into a React component
-- Enter place names instead of lat/lng values. Will probably need to use the Geocoding API.
+- Enter place names instead of lat/lng values int the json file. Will probably need to use the Geocoding API. (Under development. Check [link](index-geocode.html))
 - Add more information when you hover over a marker. Something like an image from the trip could be useful. Or a side panel that loads when you click on a marker which contains all the images from the trip.
 
 Inspiration
