@@ -55,7 +55,7 @@ And this is it! This is the only step that is required in order to see the popul
 
 <b>Note</b>: I understand that manually adding the locations can be a pain in the butt, especially for people who have travelled a lot. This will change soon as I am exploring alternate ways to do this(Facebook/Foursquare Checkins). I am also open to suggestions from you guys so feel free to use the Issue tracker to give me feedback.
 
-Map Customizations
+Customizations
 -----
 
 I have added a few map styles that I personally liked in [mapstyles.js](js/mapstyles.js). To use them, import the js file in your html page(Already added in index.html page) and replace the palceholder text in the following line with one of the possibly map styles:
@@ -64,8 +64,31 @@ I have added a few map styles that I personally liked in [mapstyles.js](js/mapst
 map.set('styles',NAME_OF_STYLE);
 ```
 
-Here is a list of the possible map styles that I have currently added.
+Here is a list of the possible map styles that you can add by default.
 
+###### prestoMap
+
+![prestoMap](images/prestoMap.png)
+
+###### google
+
+![google](images/google.png)
+
+###### cladme
+
+![cladme](images/cladme.png)
+
+###### cleanerMidnight
+
+![cleanerMidnight](images/cleanerMidnight.png)
+
+###### midnightCommander
+
+![midnightCommander](images/midnightCommander.png)
+
+###### shadesOfGray
+
+![shadesOfGray](images/shadesOfGray.png)
 
 
 
