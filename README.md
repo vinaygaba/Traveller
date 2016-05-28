@@ -18,6 +18,8 @@ I will try to be as elaborate as possible in giving instructions about how one m
 
 Usage
 ------
+The code for the webpage is the [index.html](index.html) file.
+
 First, you need to get a key to be able to use the Google Maps Javascript API. If you do not have one, go to the following [link](https://developers.google.com/maps/documentation/javascript/) and click on the "Get a Key" button on the top right corner. Once you have the key, find the following line in the index.html page and replace the placeholder with your key.
 ```
 <script src="https://maps.googleapis.com/maps/api/js?key=GOOGLE_MAP_API_KEY&callback=initMap" async defer></script>
@@ -62,6 +64,10 @@ I have added a few map styles that I personally liked in [mapstyles.js](js/mapst
 
 ```
 map.set('styles',NAME_OF_STYLE);
+
+//Example
+map.set('style',prestoMap);
+
 ```
 
 Here is a list of the possible map styles that you can add by default.

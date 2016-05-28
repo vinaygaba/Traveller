@@ -10,8 +10,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 		<meta name="author" content="Vinay Gaba" />
-		<meta name="description" content="I'm Vinay Gaba, an Android developer / Creative Programmer / Tech Nerd / Aspiring Entrepreneur obsessed with everything tech." />
-		<meta name="keywords" content="Vinay Gaba, vinaygaba, Resume, CV, Android,Android Developer, Android Wear, Android Wear beyond the handset, Google Glass, Startup, CV, Resume,Tech nerd, Entrepreneurship, Python, Algorithms, Java, MySQL,TSEC,Thadomal Shahahi Engineering College,Author" />
+		<meta name="description" content="Traveller : Add a map on your site with every place that you have visited! " />
+		<meta name="keywords" content="Vinay Gaba, vinaygaba,Traveller, Map, Google Maps" />
 		<meta name="robots" content="index, follow" />
 		<meta name="revisit-after" content="14 days" />
 
@@ -22,22 +22,17 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Candal' rel='stylesheet' type='text/css'>
-  <!--<link href='https://fonts.googleapis.com/css?family=Droid+Sans:700' rel='stylesheet' type='text/css'>-->
-    <!--<link rel="shortcut icon" href="/view/images/favicon.gif" type="image/x-icon" />
-    <link rel="icon" href="/view/images/favicon.gif" type="image/gif" />-->
+
   </head>
 
 
   <body style="overflow:hidden;">
 
-        <!--<div class="embed-responsive embed-responsive-4by3">-->
 
-          <div id="map_canvas"></div>
-          <div id="infoPanel">
-            <span id="infoText"></span>
-          </div>
-
-        <!--</div>-->
+        <div id="map_canvas"></div>
+        <div id="infoPanel">
+          <span id="infoText"></div>
+        </div>
 
 
     <script type="text/javascript" src="js/mapstyles.js"></script>
@@ -45,27 +40,29 @@
 
       var map;
       var cities = 0;
+			var blueMarkerColor = "#4346c0";
+			var redMarkerColor = "#10955e";
       function initMap() {
         map = new google.maps.Map(document.getElementById('map_canvas'), {
-          center: {lat: 17.6078, lng: 8.0817},
+          center: {lat: 20.5937, lng: 78.9629},
           zoom: 2,
           disableDefaultUI: true,
           draggable:false,
           zoomControl: true,
         });
         //Set map style
-        map.set('styles',prestoMap);
+        map.set('styles',NAME_OF_STYLE);
 
-				//https://api.myjson.com/bins/27heg
-        $.getJSON("pathToJSONFile", function(json) {
+				//Replace the below placeholder with the path to the json file
+        $.getJSON(PATH_TO_JSON, function(json) {
           for(each in json){
-            //console.log(json[each]["lat"])
+
             cities = cities + 1;
             var myLatLng = {lat: parseFloat(json[each]["lat"]), lng: parseFloat(json[each]["lon"])};
-						//var myLatLng;
-            //myLatLng = geocodeAddress(json[each]["name"]);
-						//sleep(1000);
-            var strokeColor = json[each]["purpose"]=="lived"?"#4346c0":"#10955e";
+
+            //You can replace the marker colors by changing the values in blueMarkerColor/redMarkerColor
+						//or creating new variables altogether
+            var strokeColor = json[each]["purpose"]=="lived"?blueMarkerColor:redMarkerColor;
             var marker = new google.maps.Marker({
               position: myLatLng,
               icon: {
@@ -76,14 +73,12 @@
                 fillColor:strokeColor
               },
               title:json[each]["purpose"],
-              //title:"I might be here",
               map: map
             });
 
             attachMessage(marker, json[each]["name"]);
 
-            // Attaches an info window to a marker with the provided message. When the
-            // marker is clicked, the info window will open with the secret message.
+            // Attaches an info window to a marker with the provided message.
             function attachMessage(marker, Message) {
               console.log(Message)
               var infowindow = new google.maps.InfoWindow({
@@ -92,53 +87,25 @@
 
               marker.addListener('mouseover', function() {
                 infowindow.open(marker.get('map'), marker);
-								//this.setIcon('http://www.christielakekids.com/_images/map_pins/events/canoe-for-kids.png')
               });
 
               marker.addListener('mouseout', function() {
                 infowindow.close(marker.get('map'), marker);
-								//this.removeIcon();
               });
             }
-
-
-
-
           }
-
 
           $('#infoText').html(cities + " Cities");
         });
 
       }
 
-			function sleep(miliseconds) {
-		   var currentTime = new Date().getTime();
 
-		   while (currentTime + miliseconds >= new Date().getTime()) {
-		   }
-			}
-
-			/*
-      function geocodeAddress(location) {
-        console.log("Method called")
-      var geocoder = new google.maps.Geocoder();
-      geocoder.geocode({'address': location}, function(results, status) {
-        if (status === google.maps.GeocoderStatus.OK) {
-					console.log(results[0].geometry.location)
-          return results[0].geometry.location;
-        } else {
-          console.log('Geocode was not successful for the following reason: ' + status);
-          return -1
-        }
-      });
-    }*/
 
       </script>
 
-      <script src="https://maps.googleapis.com/maps/api/js?key=GOOGLE_MAP_API_KEY&callback=initMap" async defer></script>
-
-    <!-- Latest compiled and minified JavaScript -->
+			<!-- Update the place holder with the Google Maps API Key below-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=GOOGLE_MAP_API_KEY&callback=initMap" async defer></script>
     <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   </body>
