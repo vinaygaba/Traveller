@@ -11,9 +11,11 @@ Introduction
 
 My motivation behind creating Traveller was to create a [map for my website](http://www.vinaygaba.com/traveller/demo.html) that showcases the places that I have visited. I soon realized that there might be more people(developers) who would want to have a similar page on their site so I decided to put this up on Github.
 
-As of now, it is a simple html page but going forward, I will be working on converting this into a React component so that it can be easily added to any web app.
+As of now, it is a simple html page but going forward, I will be working on <b>converting this into a React component</b> so that it can be easily added to any web app.
 
 I will try to be as elaborate as possible in giving instructions about how one might use this and customize it to suit their needs.
+
+The blue markers represent the cities that I have lived in and the green markers represent the places I have travelled to.
 
 
 Usage
