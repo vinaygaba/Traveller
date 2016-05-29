@@ -23,7 +23,7 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Candal' rel='stylesheet' type='text/css'>
 
-    <!-- JQUERY 
+    <!-- JQUERY
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
 
@@ -56,10 +56,10 @@
           zoomControl: true,
         });
         //Set map style
-        map.set('styles', NAME_OF_STYLE);
+        map.set('styles', prestoMap);
 
         //Replace the below placeholder with the path to the json file
-        $.getJSON(PATH_TO_JSON, function(json) {
+        $.getJSON("https://api.myjson.com/bins/27heg", function(json) {
           for(each in json){
             cities = cities + 1;
             var myLatLng = {lat: parseFloat(json[each]["lat"]), lng: parseFloat(json[each]["lon"])};
@@ -109,7 +109,7 @@
       </script>
 
       <!-- Update the place holder with the Google Maps API Key below-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=GOOGLE_MAP_API_KEY&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   </body>
 
