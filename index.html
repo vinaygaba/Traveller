@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
+  <head>
 
-		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-		<meta http-equiv="content-script-type" content="text/javascript" />
-		<meta http-equiv="content-style-type" content="text/css" />
-		<meta http-equiv="content-language" content="en" />
-		<meta property="og:image" content="/view/images/gdg.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="content-script-type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <meta http-equiv="content-language" content="en" />
+    <meta property="og:image" content="/view/images/gdg.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<meta name="author" content="Vinay Gaba" />
-		<meta name="description" content="Traveller : Add a map on your site with every place that you have visited! " />
-		<meta name="keywords" content="Vinay Gaba, vinaygaba,Traveller, Map, Google Maps" />
-		<meta name="robots" content="index, follow" />
-		<meta name="revisit-after" content="14 days" />
+    <meta name="author" content="Vinay Gaba" />
+    <meta name="description" content="Traveller : Add a map on your site with every place that you have visited! " />
+    <meta name="keywords" content="Vinay Gaba, vinaygaba,Traveller, Map, Google Maps" />
+    <meta name="robots" content="index, follow" />
+    <meta name="revisit-after" content="14 days" />
 
-		<title>Traveller</title>
+    <title>Traveller</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="css/style.css" >
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Candal' rel='stylesheet' type='text/css'>
+
+    <!-- JQUERY 
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+
 
   </head>
 
@@ -40,8 +45,8 @@
 
       var map;
       var cities = 0;
-			var blueMarkerColor = "#4346c0";
-			var redMarkerColor = "#10955e";
+      var blueMarkerColor = "#4346c0";
+      var redMarkerColor = "#10955e";
       function initMap() {
         map = new google.maps.Map(document.getElementById('map_canvas'), {
           center: {lat: 20.5937, lng: 78.9629},
@@ -51,17 +56,16 @@
           zoomControl: true,
         });
         //Set map style
-        map.set('styles',NAME_OF_STYLE);
+        map.set('styles', NAME_OF_STYLE);
 
-				//Replace the below placeholder with the path to the json file
+        //Replace the below placeholder with the path to the json file
         $.getJSON(PATH_TO_JSON, function(json) {
           for(each in json){
-
             cities = cities + 1;
             var myLatLng = {lat: parseFloat(json[each]["lat"]), lng: parseFloat(json[each]["lon"])};
 
             //You can replace the marker colors by changing the values in blueMarkerColor/redMarkerColor
-						//or creating new variables altogether
+            //or creating new variables altogether
             var strokeColor = json[each]["purpose"]=="lived"?blueMarkerColor:redMarkerColor;
             var marker = new google.maps.Marker({
               position: myLatLng,
@@ -104,9 +108,8 @@
 
       </script>
 
-			<!-- Update the place holder with the Google Maps API Key below-->
+      <!-- Update the place holder with the Google Maps API Key below-->
     <script src="https://maps.googleapis.com/maps/api/js?key=GOOGLE_MAP_API_KEY&callback=initMap" async defer></script>
-    <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   </body>
 
