@@ -2,14 +2,16 @@
 
 ![Feature Image](images/FeatureImage.gif)
 
-Add a map on your site with every place that you have visited! [Demo](http://www.vinaygaba.com/traveller/demo.html)
+Add a map on your site with every place that you have visited!
+
+The hosted demo is currently unavailable. To try Traveller, use [index.html](index.html) with your own Google Maps API key, following the setup below.
 
 ---
 
 Introduction
 -----
 
-My motivation behind creating Traveller was to create a [map for my website](http://www.vinaygaba.com/traveller/demo.html) that showcases the places that I have visited. I soon realized that there might be more people(developers) who would want to have a similar page on their site so I decided to put this up on Github.
+My motivation behind creating Traveller was to create a map for [my website](https://www.vinaygaba.me/) that showcases the places that I have visited. I soon realized that there might be more people(developers) who would want to have a similar page on their site so I decided to put this up on Github.
 
 As of now, it is a simple html page but going forward, I will be working on <b>converting this into a React component</b> so that it can be easily added to any web app.
 
